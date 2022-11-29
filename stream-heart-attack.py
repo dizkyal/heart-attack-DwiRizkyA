@@ -11,35 +11,34 @@ Age = st.text_input('Masukan Umur')
 
 sex = st.text_input('Masukan Jenis Kelamin')
 
-chest_pain_type = st.text_input('Masukan Jenis Nyeri Pada Dada')
+cp = st.text_input('Masukan Jenis Nyeri Pada Dada')
 
-resting_blood_pressure = st.text_input('Masukan Hasil Tekanan Darah')
+trtbps = st.text_input('Masukan Hasil Tekanan Darah')
 
-cholestoral = st.text_input('Masukan Hasil Kolesterol')
+chol = st.text_input('Masukan Hasil Kolesterol')
 
-fasting_blood_sugar = st.text_input('Masukan Hasil Gula Darah')
+fbs = st.text_input('Masukan Hasil Gula Darah')
 
-resting_electrocardiographic_results = st.text_input('Masukan Hasil Elektrokardiografi')
+restecg = st.text_input('Masukan Hasil Elektrokardiografi')
 
-maximum_heart_rate_achieved = st.text_input('Masukan Hasil Detak Jantung Maksimal')
+thalachh = st.text_input('Masukan Hasil Detak Jantung Maksimal')
 
-exercise_induced_angina = st.text_input('Masukan Hasil Angina Akibat Olahraga')
+exng = st.text_input('Masukan Hasil Angina Akibat Olahraga')
 
 oldpeak = st.text_input('Masukan Hasil depresi yang diakibatkan oleh latihan relative')
 
-slope_of_the_peak_exercise = st.text_input('Masukan Hasil Tekanan Depresi Maksimal')
+slp = st.text_input('Masukan Hasil Tekanan Depresi Maksimal')
 
-number_of_major_vessels = st.text_input('Masukan Hasil Pembuluh Darah Utama')
+caa = st.text_input('Masukan Hasil Pembuluh Darah Utama')
 
-Thalassemia = st.text_input('Masukan Hasil Kelainan Darah')
+thall = st.text_input('Masukan Hasil Kelainan Darah')
 
 # code untuk kelompok jenis bunga
 heart_diagnosis = ''
 
 # membuat tombol untuk prediksi
 if st.button('Test Prediksi'):
-    heart_prediction = heart_model.predict([[Age, sex, chest_pain_type, resting_blood_pressure, cholestoral, fasting_blood_sugar, resting_electrocardiographic_results, maximum_heart_rate_achieved, exercise_induced_angina, oldpeak, slope_of_the_peak_exercise, number_of_major_vessels, Thalassemia]])
-    
+    heart_prediction = heart_model.predict([[Age, sex, cp, trtbps, chol, fbs, restecg, thalachh, exng, oldpeak, slp, caa, thall]])
     if(heart_prediction[0] == 1):
         heart_diagnosis = 'Pasien Terkena Serangan Jantung'
     else :
